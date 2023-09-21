@@ -1,0 +1,47 @@
+<odoo>
+    <template id="request_details_template">
+      <t t-call="web.html_container">
+                 <t t-call="web.external_layout">
+                        <div class="page">
+                        <div class="oe_structure"/>
+                        <div class = "raw">
+                            <t t-foreach="docs" t-as="o">
+                                <table class="table table-condensed">  
+                                    <thead>
+                                        <tr>
+                                             <h5>
+                                                <td><strong>Customer : <span t-esc="o.patient_id.customer.name"></span></strong></td>
+                                                <td><strong>Request ID : <span t-esc="o.name"></span></strong></td>
+                                                <td><strong>Request Date : <span t-esc="o.date"></span></strong></td>
+                                                <td><strong>Status : <span t-esc="o.state"></span></strong></td>
+                                             </h5>
+                                        </tr>
+                                        <tr>
+                                            <th style="text-align: left;">Multi-Layer/HT</th>
+                                            <th style="text-align: left;">Connected/Separate</th>
+                                            <th style="text-align: left;">Unit</th>
+                                            <th style="text-align: left;">Shade</th>
+                                            <th style="text-align: left;">Type</th>
+                                            <th style="text-align: left;">Cost</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr t-foreach="o.appointment_lines" t-as="line">
+                                            <td><span t-esc="line.multi_ht"></span></td>
+                                            <td><span t-esc="line.sep_con"></span></td>
+                                            <td><t t-foreach="line.tooth_unit" t-as="Tunit"><span t-esc="Tunit.name"></span> / </t></td>
+                                            <td><span t-esc="line.shade"></span></td>
+                                            <td><span t-esc="line.lab_test.unit"></span></td>
+                                            <td><span t-esc="line.cost"></span></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </t>
+                        </div> 
+                    </div>
+                 </t>
+             </t>
+         </template>
+</odoo>
+
+

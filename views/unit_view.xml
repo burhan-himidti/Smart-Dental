@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="view_unit_tree" model="ir.ui.view">
+            <field name="name">Unit Tree</field>
+            <field name="model">unit</field>
+            <field name="arch" type="xml">
+                <tree string="Unit">
+                    <field name="name" />
+                </tree>
+            </field>
+        </record>
+        <record id="view_unit_form" model="ir.ui.view">
+            <field name="name">Unit Form</field>
+            <field name="model">unit</field>
+            <field name="arch" type="xml">
+                <form string="Unit">
+                    <sheet>
+                        <group>
+                            <field name="name" />
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+  
+        <record model="ir.actions.act_window" id="act_open_unit_view">
+            <field name="name">Units</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">unit</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Create Units.
+                </p>
+            </field>
+        </record>
+        <menuitem id="configuration_id"
+                  name="Configuration"
+                  parent="menu_root_lab"
+                  sequence="100"/>
+        <menuitem name="Unit"
+          id="unit_conf"
+          parent="configuration_id"
+          action="act_open_unit_view"
+          sequence="21"/>
+    </data>
+</odoo>

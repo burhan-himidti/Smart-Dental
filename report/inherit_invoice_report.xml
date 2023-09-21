@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>       
+        <template id="lab_inherited_invoice_report" inherit_id="account.report_invoice_document">
+            <!-- <xpath expr="//table[@class='o_main_table']/tbody/tr/td[@class='o_price_total']" position="replace">
+                <td>
+                    <span t-field="line.discription" t-options="{'widget': 'text'}" />
+                </td>  
+            </xpath> -->
+
+            <!-- <xpath expr="//div[@class='row mt32 mb32']" position="after">
+                <div class="row mt32 mb32" id="test_change_existing_invoice_report">
+                        <strong>i will be best and successful in my life</strong>
+                </div>
+            </xpath> -->
+
+            <xpath expr="//div[@id='qrcode']" position="after">
+                <div class="row mt32 mb32" id="test_change_existing_invoice_report">
+                   <img alt="Barcode" t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s' % ('EAN13', o.name, 600, 150)" style="width:20%;height:3%;"/>
+                </div>
+            </xpath>
+
+            <xpath expr="//div[@class='mt16']" position="before">
+                 <p>Phone : <span t-field="o.phone" /></p>
+            </xpath>
+            
+            
+
+       </template>
+</odoo>
